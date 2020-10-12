@@ -1,98 +1,48 @@
-// stylelint-disable-next-line selector-max-type
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: tdbc-color("background");
-  color: $tdbc-color-body;
-  font-family: $tdbc-font-family;
-}
-
-// stylelint-disable selector-max-type, selector-no-qualifying-type
-main,
-main.tdbc-container {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-}
-
-footer {
-  margin-top: auto;
-}
-
-article {
-  max-width: 80ch;
-
-  > img {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-// stylelint-enable
-
-.tdbc-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 120ch;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 1rem;
-}
-
-.tdbc-column-container {
+.body {
   display: grid;
-  grid-gap: 2em;
-  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  margin: 0 auto;
+  //max-width: 1100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 35vh 35vh 45vh 45vh 60vh 100px 40vh;
+  gap: 0px 0px;
+  grid-template-areas:
+          "header header header header"
+          "header header header header"
+          "header header header header"
+          "main main main main"
+          "main main main main"
+          "main main main main"
+          "footer footer footer footer";
+
 }
 
-// stylelint-disable-next-line selector-no-qualifying-type, selector-max-type
-ul.tdbc-column-container {
-  padding-left: 0;
-}
-
-.tdbc-section {
-  width: 100%;
-
-  &--padded {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-  }
-
-  // stylelint-disable-next-line selector-max-universal
-  *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.tdbc-hero {
+.header {
+  background-color: #848bdb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%236998db' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23415d8d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%232c58a2' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%230c3889' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%231953a6' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23314c95' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%235e6892' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%2339408b' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23324780' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%230a145d' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%235d6b88' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23233598' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
   display: grid;
-  min-height: 40vh;
-  place-content: center;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  text-align: center;
+  grid-area: header;
+  grid-template-areas:
+          ". . . nav"
+          ". . . nav"
+          ". . . nav";
+
+}
+.nav { grid-area: nav; }
+
+.main {
+  grid-area: main;
+  background-color: #848bdb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.42'%3E%3Cpolygon fill='%237881dc' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%236b78de' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%235e6ee0' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%235065e3' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23425ce6' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%233353ea' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23244aee' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.tdbc-row {
-  display: grid;
-  grid-gap: 1rem;
-
-  @media (min-width: 80ch) {
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-  }
-
-  &--center-content {
-    justify-content: center;
-  }
-
-  &--center-alignitems {
-    align-items: center;
-  }
-}
-
-// stylelint-disable-next-line selector-max-type
-hr {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  border: 1px solid tdbc-color("secondary");
+.footer {
+  grid-area: footer;
+  background-color: #833a8a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23853f9b' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%238343ad' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%237e4bbc' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%237959c4' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%237668cb' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%237777d2' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%238693d9' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }

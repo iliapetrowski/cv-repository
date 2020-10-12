@@ -1,5 +1,5 @@
 {
-  "name": "tdbc-html-sass-jumpstart",
+  "name": "html-sass-jumpstart",
   "description": "node-sass jumpstart with stylelint",
   "version": "0.4.0",
   "main": "public/index.html",
